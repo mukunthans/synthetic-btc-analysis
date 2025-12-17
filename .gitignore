@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS system files
+.DS_Store
+
+# Data files (DO NOT TRACK RAW DATA)
+data/**/*.csv
+data/**/*.json
+data/**/*.zip
+data/**/*.pkl
+data/**/*.parquet
+
+# VSCode
+.vscode/
