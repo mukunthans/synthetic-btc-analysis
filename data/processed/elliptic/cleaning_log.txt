@@ -1,0 +1,98 @@
+2025-12-17 22:24:20 - INFO - ================================================================================
+2025-12-17 22:24:20 - INFO - ELLIPTIC BITCOIN DATASET CLEANING SCRIPT
+2025-12-17 22:24:20 - INFO - ================================================================================
+2025-12-17 22:24:20 - INFO - Validating input files...
+2025-12-17 22:24:20 - INFO -   ✓ Features file found: data/raw/elliptic_bitcoin_dataset/elliptic_txs_features.csv (657.7 MB)
+2025-12-17 22:24:20 - INFO -   ✓ Classes file found: data/raw/elliptic_bitcoin_dataset/elliptic_txs_classes.csv (3.2 MB)
+2025-12-17 22:24:20 - INFO -   ✓ Edgelist file found: data/raw/elliptic_bitcoin_dataset/elliptic_txs_edgelist.csv (4.3 MB)
+2025-12-17 22:24:20 - INFO - 
+================================================================================
+2025-12-17 22:24:20 - INFO - STEP 1: Loading Features File
+2025-12-17 22:24:20 - INFO - ================================================================================
+2025-12-17 22:24:20 - INFO - Loading data/raw/elliptic_bitcoin_dataset/elliptic_txs_features.csv (columns 0-1 only)...
+2025-12-17 22:24:21 - INFO -   Initial row count: 203,769
+2025-12-17 22:24:21 - INFO -   Validating data types and ranges...
+2025-12-17 22:24:21 - INFO -   Final features count: 203,769
+2025-12-17 22:24:21 - INFO -   Timestamp range: [1, 49]
+2025-12-17 22:24:21 - INFO - 
+================================================================================
+2025-12-17 22:24:21 - INFO - STEP 2: Loading Classes File
+2025-12-17 22:24:21 - INFO - ================================================================================
+2025-12-17 22:24:21 - INFO - Loading data/raw/elliptic_bitcoin_dataset/elliptic_txs_classes.csv...
+2025-12-17 22:24:21 - INFO -   Initial row count: 203,769
+2025-12-17 22:24:21 - INFO -   Original class distribution:
+2025-12-17 22:24:21 - INFO -     - unknown: 157,205
+2025-12-17 22:24:21 - INFO -     - 2: 42,019
+2025-12-17 22:24:21 - INFO -     - 1: 4,545
+2025-12-17 22:24:21 - INFO -   Final classes count: 203,769
+2025-12-17 22:24:21 - INFO -   Mapped label distribution:
+2025-12-17 22:24:21 - INFO -     - 0 (licit): 42,019
+2025-12-17 22:24:21 - INFO -     - 1 (illicit): 4,545
+2025-12-17 22:24:21 - INFO -     - None (unknown): 157,205
+2025-12-17 22:24:21 - INFO - 
+================================================================================
+2025-12-17 22:24:21 - INFO - STEP 3: Merging Nodes
+2025-12-17 22:24:21 - INFO - ================================================================================
+2025-12-17 22:24:21 - INFO - Performing LEFT JOIN on node_id...
+2025-12-17 22:24:22 - INFO -   Total nodes: 203,769
+2025-12-17 22:24:22 - INFO -   Labeled nodes: 46,564
+2025-12-17 22:24:22 - INFO -     - Licit (0): 42,019
+2025-12-17 22:24:22 - INFO -     - Illicit (1): 4,545
+2025-12-17 22:24:22 - INFO -   Unknown nodes: 157,205
+2025-12-17 22:24:22 - INFO - 
+================================================================================
+2025-12-17 22:24:22 - INFO - STEP 4: Loading and Cleaning Edges
+2025-12-17 22:24:22 - INFO - ================================================================================
+2025-12-17 22:24:22 - INFO - Loading data/raw/elliptic_bitcoin_dataset/elliptic_txs_edgelist.csv...
+2025-12-17 22:24:22 - INFO -   Initial edge count: 234,355
+2025-12-17 22:24:22 - INFO -   Validating edge endpoints against node list...
+2025-12-17 22:24:22 - INFO -   ✓ All edges have valid endpoints
+2025-12-17 22:24:22 - INFO -   Final edge count: 234,355
+2025-12-17 22:24:22 - INFO - 
+================================================================================
+2025-12-17 22:24:22 - INFO - STEP 5: Building NetworkX Graph
+2025-12-17 22:24:22 - INFO - ================================================================================
+2025-12-17 22:24:22 - INFO - Creating directed graph...
+2025-12-17 22:24:22 - INFO -   Adding nodes with attributes...
+2025-12-17 22:24:24 - INFO -   Added 203,769 nodes
+2025-12-17 22:24:24 - INFO -   Adding edges...
+2025-12-17 22:24:26 - INFO -   Added 234,355 edges
+2025-12-17 22:24:26 - INFO -   Verifying graph properties...
+2025-12-17 22:24:26 - INFO -   ✓ No self-loops
+2025-12-17 22:24:26 - INFO -   Graph is directed: True
+2025-12-17 22:24:26 - INFO -   Graph is multigraph: False
+2025-12-17 22:24:26 - INFO - 
+================================================================================
+2025-12-17 22:24:26 - INFO - STEP 6: Computing Metadata
+2025-12-17 22:24:26 - INFO - ================================================================================
+2025-12-17 22:24:26 - INFO - Calculating graph statistics...
+2025-12-17 22:24:26 - INFO -   Checking connectivity (this may take a moment)...
+2025-12-17 22:24:26 - INFO -   Metadata summary:
+2025-12-17 22:24:26 - INFO -     - dataset_name: elliptic
+2025-12-17 22:24:26 - INFO -     - num_nodes: 203769
+2025-12-17 22:24:26 - INFO -     - num_edges: 234355
+2025-12-17 22:24:26 - INFO -     - num_labeled: 46564
+2025-12-17 22:24:26 - INFO -     - num_licit: 42019
+2025-12-17 22:24:26 - INFO -     - num_illicit: 4545
+2025-12-17 22:24:26 - INFO -     - num_unknown: 157205
+2025-12-17 22:24:26 - INFO -     - time_range: [1, 49]
+2025-12-17 22:24:26 - INFO -     - avg_degree: 2.3
+2025-12-17 22:24:26 - INFO -     - num_self_loops: 0
+2025-12-17 22:24:26 - INFO -     - num_isolated_nodes: 0
+2025-12-17 22:24:26 - INFO -     - is_connected: False
+2025-12-17 22:24:26 - INFO -     - num_connected_components: 49
+2025-12-17 22:24:26 - INFO - 
+================================================================================
+2025-12-17 22:24:26 - INFO - STEP 7: Saving Outputs
+2025-12-17 22:24:26 - INFO - ================================================================================
+2025-12-17 22:24:27 - INFO -   Saving data/processed/elliptic/nodes.csv...
+2025-12-17 22:24:27 - INFO -     ✓ Saved 203,769 nodes
+2025-12-17 22:24:27 - INFO -   Saving data/processed/elliptic/edges.csv...
+2025-12-17 22:24:27 - INFO -     ✓ Saved 234,355 edges
+2025-12-17 22:24:27 - INFO -   Saving data/processed/elliptic/graph.gpickle...
+2025-12-17 22:24:27 - INFO -     ✓ Saved NetworkX graph
+2025-12-17 22:24:27 - INFO -   Saving data/processed/elliptic/metadata.json...
+2025-12-17 22:24:27 - INFO -     ✓ Saved metadata
+2025-12-17 22:24:27 - INFO - 
+  All outputs saved successfully!
+2025-12-17 22:24:27 - INFO - Processing completed successfully!
