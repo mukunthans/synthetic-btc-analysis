@@ -1,0 +1,32 @@
+================================================================================
+RANDOM GRAPH GENERATION LOG - ERDOS_RENYI
+================================================================================
+
+Generated: 2025-12-18T17:30:18.285904
+Graph Type: erdos_renyi
+Random Seed: 42
+
+TARGET (from Elliptic):
+  Nodes: 203,769
+  Edges: 234,355
+
+GENERATED:
+  Nodes: 203,769
+  Edges: 233,058
+  Generation Time: 1463.86 seconds
+
+PROPERTIES:
+  Avg In-Degree: 1.14
+  Avg Out-Degree: 1.14
+  Max In-Degree: 9
+  Max Out-Degree: 8
+  Clustering: 0.0000
+  Density: 5.612934e-06
+  Connected: False
+  Components: 23966
+
+OUTPUT FILES:
+  nodes.csv: 203,769 rows
+  edges.csv: 233,058 rows
+  graph.gpickle: NetworkX DiGraph object
+  metadata.json: Graph statistics

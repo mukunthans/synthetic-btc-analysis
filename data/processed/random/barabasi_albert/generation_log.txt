@@ -1,0 +1,32 @@
+================================================================================
+RANDOM GRAPH GENERATION LOG - BARABASI_ALBERT
+================================================================================
+
+Generated: 2025-12-18T17:30:20.701226
+Graph Type: barabasi_albert
+Random Seed: 42
+
+TARGET (from Elliptic):
+  Nodes: 203,769
+  Edges: 234,355
+
+GENERATED:
+  Nodes: 203,769
+  Edges: 407,536
+  Generation Time: 1.24 seconds
+
+PROPERTIES:
+  Avg In-Degree: 2.00
+  Avg Out-Degree: 2.00
+  Max In-Degree: 1304
+  Max Out-Degree: 1304
+  Clustering: 0.0000
+  Density: 9.815036e-06
+  Connected: True
+  Components: 1
+
+OUTPUT FILES:
+  nodes.csv: 203,769 rows
+  edges.csv: 407,536 rows
+  graph.gpickle: NetworkX DiGraph object
+  metadata.json: Graph statistics
