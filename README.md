@@ -1,85 +1,86 @@
 # Synthetic Bitcoin Transaction Analysis
 
-> Comparative study of real, synthetic, and random graph structures for Bitcoin transaction networks
+> Comparative study of real Bitcoin transactions and random graph baselines for blockchain network analysis
 
 **Author:** Mukunthan Sivakumar | IIT Madras  
-**Status:** In Progress
+**Repository:** [github.com/mukunthans/synthetic-btc-analysis](https://github.com/mukunthans/synthetic-btc-analysis)
 
 ## Overview
 
-This project analyzes and compares graph properties across three types of transaction networks to understand what makes Bitcoin transaction graphs unique and how to generate realistic synthetic data.
+This project analyzes and compares graph properties of Bitcoin transaction networks with random graph models to understand structural characteristics and inform the design of realistic synthetic blockchain data generators.
 
-**Datasets Used:**
-- **Elliptic Dataset** - Real Bitcoin transactions with illicit labels
-- **IBM AML Dataset** - Synthetic bank transaction network
-- **Random Graphs** - Erdős–Rényi and Barabási–Albert baselines
+**Datasets Analyzed:**
+- **Elliptic Dataset** - Real Bitcoin transactions with illicit/licit labels
+- **Erdős–Rényi Model** - Random graph baseline
+- **Barabási–Albert Model** - Scale-free network baseline
 
-## Experiments
 
-The analysis consists of four key experiments:
+## Experiments & Results
 
-1. **Degree Distribution & Clustering** - Analyze node connectivity patterns and local clustering
-2. **Motif Analysis** - Identify common subgraph patterns (triangles, chains, etc.)
-3. **Temporal Behavior** - Study time-series patterns and transaction burstiness
-4. **Label Neighborhood Structure** - Compare graph structure around illicit vs. licit nodes
+Four comprehensive experiments comparing real vs. random graph properties:
+
+| Experiment | Description | Results |
+|------------|-------------|---------|
+| **Exp 1** | Degree Distribution & Clustering | In-degree/Out-degree stats, clustering coefficients |
+| **Exp 2** | Motif Analysis | Motif counts and enrichment patterns |
+| **Exp 3** | Temporal Behavior | Time-series patterns and burstiness metrics |
+| **Exp 4** | Label Neighborhood | Illicit vs. licit node neighborhood structure |
+
+Results are stored in `experiments/experiments/results/` as CSV files.
 
 ## Project Structure
 
 ```
 synthetic-btc-analysis/
 ├── data/
-│   ├── raw/              # Original datasets
-│   └── processed/        # Cleaned and preprocessed data
-├── experiments/
-│   ├── exp1_degree_clustering/
-│   ├── exp2_motifs/
-│   ├── exp3_temporal/
-│   └── exp4_label_structure/
+│   ├── raw/                       # Original datasets (place data here)
+│   └── processed/
+│       ├── elliptic/              # Cleaned Elliptic dataset
+│       │   ├── cleaning_log.txt   # Data cleaning logs
+│       │   ├── nodes.csv          # Node features and labels
+│       │   ├── edges.csv          # Transaction edges
+│       │   ├── graph.gpickle      # NetworkX graph object
+│       │   └── metadata.json      # Dataset statistics
+│       └── random/                # Generated random graphs
+│           ├── barabasi_albert/   # BA model graphs
+│           └── erdos_renyi/       # ER model graphs
+├── experiments/experiments/
+│   ├── experiments.ipynb          # Main analysis notebook
+│   ├── plots/                     # Visualization outputs
+│   └── results/                   # Experimental results (CSV)
+│       ├── exp1_in_degree_stats.csv
+│       ├── exp1_out_degree_stats.csv
+│       ├── exp2_motif_counts.csv
+│       ├── exp2_motif_enrichment.csv
+│       ├── exp3_temporal_summary.csv
+│       └── exp4_label_summary.csv
 ├── src/
-│   └── etl/              # Data processing scripts
+│   ├── etl/
+│   │   ├── clean_elliptic.py           # Process Elliptic dataset
+│   │   ├── generate_random_graphs.py   # Generate random baselines
+│   │   └── validate_random_graphs.py   # Validate graph generation
+│   └── utils/                          # Helper functions
+├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
 
-## Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/mukunthans/synthetic-btc-analysis.git
-cd synthetic-btc-analysis
+## Key Findings
 
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+The experiments provide insights into:
+- How real Bitcoin transaction graphs differ from random networks
+- Structural patterns unique to blockchain transactions
+- Temporal dynamics of cryptocurrency flows
+- Neighborhood characteristics around illicit activities
 
-# Install dependencies
-pip install -r requirements.txt
-```
-
-## Usage
-
-```bash
-# Run ETL pipeline
-python src/etl/process_data.py
-
-# Run experiments
-jupyter notebook experiments/experiments.ipynb
-```
-
-## Goals
-
-- Build unified ETL pipeline for all datasets
-- Compare structural, temporal, and motif properties
-- Identify key differences between real and synthetic transaction graphs
-- Provide insights for designing realistic synthetic Bitcoin data generators
+These findings inform the design of more realistic synthetic Bitcoin data generators for privacy-preserving blockchain research.
 
 ## Dependencies
 
 - Python 3.8+
-- pandas, numpy
-- networkx
-- matplotlib, seaborn
-- jupyter
-
-
+- pandas, numpy - Data manipulation
+- networkx - Graph analysis
+- matplotlib, seaborn - Visualization
+- jupyter - Interactive analysis
 
