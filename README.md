@@ -63,7 +63,7 @@ pip install -r requirements.txt
 python src/etl/process_data.py
 
 # Run experiments
-jupyter notebook experiments/exp1_degree_clustering/analysis.ipynb
+jupyter notebook experiments/experiments.ipynb
 ```
 
 ## Goals
