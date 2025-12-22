@@ -1,0 +1,4 @@
+Dataset,Fan-In (5+),Fan-In (10+),Fan-Out (5+),Fan-Out (10+),Chains (5+),Chains (10+),Triangles,Avg Chain Length
+Bitcoin,4396,1912,2695,758,1125,570,40,11.068085106382979
+Erdős–Rényi,1297,0,1294,0,0,0,0,3.108108108108108
+Barabási–Albert,13584,3724,13584,3724,0,0,0,0.0
